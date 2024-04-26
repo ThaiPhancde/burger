@@ -7,7 +7,7 @@ namespace burger.Models
         public DataContext(DbContextOptions<DataContext> options): base(options){
 
         }
-        public DbSet<tblMenu> Menus { get; set; }
+        public DbSet<tblMenu> Menu { get; set; }
         
     }
 }

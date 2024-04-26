@@ -19,17 +19,29 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item @@menu__active">
-                        <a class="nav-link" href="menu.html">Menu</a>
-                    </li>
-                    <li class="nav-item @@about__active">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item @@contact__active">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                    @foreach (var menu in Model.Where(m => m.Levels == 1).OrderBy(m => m.MenuOrder))
+                    {
+                        var pID = menu.MenuID;
+                        var sMenu = Model.Where(s => s.ParentID == pID).OrderBy(n => n.MenuOrder).ToList();
+                        if (sMenu.Count() == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">@menu.MenuName</a>
+                            </li>
+                        }
+                        else 
+                        {
+                            <li>
+                                <a class="nav-link" href="#">@menu.MenuName</a>
+                                <ul>
+                                    @foreach (var nMenu in sMenu)
+                                    {
+                                        <li><a href="#">@nMenu.MenuName</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    }
                     </li>
                     <!--/search-right-->
                     <div class="search-right">

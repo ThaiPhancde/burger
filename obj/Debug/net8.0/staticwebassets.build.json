@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yohajJkOICeS8I0nRE1i5pDduFwB+pshVtazgcY8Zzc=",
+  "Hash": "cW4fj+YcgDvbt0+3WyN/Sae/+vj37XIKXq0Seb4PnK0=",
   "Source": "burger",
   "BasePath": "_content/burger",
   "Mode": "Default",
@@ -587,25 +587,6 @@
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces-clipart\\pic-4.png"
     },
     {
-      "Identity": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face1.jpg",
-      "SourceId": "burger",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\",
-      "BasePath": "_content/burger",
-      "RelativePath": "admin/assets/images/faces/face1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face1.jpg"
-    },
-    {
       "Identity": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face10.jpg",
       "SourceId": "burger",
       "SourceType": "Discovered",
@@ -661,6 +642,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face12.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face123.jpg",
+      "SourceId": "burger",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\",
+      "BasePath": "_content/burger",
+      "RelativePath": "admin/assets/images/faces/face123.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\faces\\face123.jpg"
     },
     {
       "Identity": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face13.jpg",

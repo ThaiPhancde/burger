@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-
+using burger.Areas.Admin.Models;
 namespace burger.Models
 {
     public class DataContext : DbContext
@@ -8,6 +8,7 @@ namespace burger.Models
 
         }
         public DbSet<tblMenu> Menu { get; set; }
+        public DbSet<AdminMenu> AdminMenu { get; set; }
         
     }
 }

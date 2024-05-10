@@ -117,10 +117,6 @@
       "PackagePath": "staticwebassets\\admin\\assets\\images\\faces-clipart\\pic-4.png"
     },
     {
-      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face1.jpg",
-      "PackagePath": "staticwebassets\\admin\\assets\\images\\faces\\face1.jpg"
-    },
-    {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face10.jpg",
       "PackagePath": "staticwebassets\\admin\\assets\\images\\faces\\face10.jpg"
     },
@@ -131,6 +127,10 @@
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face12.jpg",
       "PackagePath": "staticwebassets\\admin\\assets\\images\\faces\\face12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face123.jpg",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\faces\\face123.jpg"
     },
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\faces\\face13.jpg",

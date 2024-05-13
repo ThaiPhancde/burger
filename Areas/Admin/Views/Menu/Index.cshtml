@@ -1,0 +1,56 @@
+@using burger.Models;
+@model IList<tblMenu>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="col-md-7 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Feature list</h4>
+            <p>
+                <a type="button" class="btn btn-inverse-danger btn-fw" asp-area="Admin" asp-controller="Menu" asp-action="Create">
+                    <i class="text-primary"></i>Add new item</a>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered datatable">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Item Name</th>
+                                    <th class="text-center">Item Level</th>
+                                    <th class="text-center">ParentLevel</th>
+                                    <th class="text-center">Item Order</th>
+                                    <th class="text-center">IsActive</th>
+                                    <th class="text-center">Functionality</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="text-center">@item.MenuID</td>
+                                        <td class="text-left text-primary">
+                                            <a asp-area="Admin" asp-controller="Menu" asp-action="Details" asp-route-id="@item.MenuID">@item.MenuName</a>
+                                        </td>
+                                        <td class="text-center">@item.Levels</td>
+                                        <td class="text-center">@item.ParentID</td>
+                                        <td class="text-center">@item.MenuOrder</td>
+                                        <td class="text-center">@item.IsActive</td>
+                                        <td class="text-center d-flex justify-content-center">
+                                        <div class="d-inline-flex">
+                                            <a asp-area="Admin" asp-controller="Menu" asp-action="Edit" asp-route-id="@item.MenuID" class="btn btn-inverse-success btn-icon btn-sm d-flex align-items-center me-2" title="Sửa menu">
+                                                <i class="mdi mdi-lead-pencil"></i>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="Menu" asp-action="Delete" asp-route-id="@item.MenuID" class="btn btn-inverse-danger btn-icon btn-sm d-flex align-items-center" title="Xóa menu">
+                                                <i class="mdi mdi-delete-forever"></i>
+                                            </a>
+                                        </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+            </div>
+        </div>
+    </div>
+</div>

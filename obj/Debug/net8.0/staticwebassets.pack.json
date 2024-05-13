@@ -233,6 +233,10 @@
       "PackagePath": "staticwebassets\\admin\\assets\\images\\favicon.png"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\logo-admin.svg",
+      "PackagePath": "staticwebassets\\admin\\assets\\images\\logo-admin.svg"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\logo-mini.svg",
       "PackagePath": "staticwebassets\\admin\\assets\\images\\logo-mini.svg"
     },

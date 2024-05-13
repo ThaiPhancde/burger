@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cW4fj+YcgDvbt0+3WyN/Sae/+vj37XIKXq0Seb4PnK0=",
+  "Hash": "fLBXBMK4TBVhs+0ykswTizpwP6+x/mhp58vH4kWNjzA=",
   "Source": "burger",
   "BasePath": "_content/burger",
   "Mode": "Default",
@@ -1136,6 +1136,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\logo-admin.svg",
+      "SourceId": "burger",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\",
+      "BasePath": "_content/burger",
+      "RelativePath": "admin/assets/images/logo-admin.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\admin\\assets\\images\\logo-admin.svg"
     },
     {
       "Identity": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\images\\logo-mini.svg",

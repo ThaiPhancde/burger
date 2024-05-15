@@ -26,17 +26,40 @@
                         if (sMenu.Count() == 0)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" href="#">@menu.MenuName</a>
+                                @if (menu.MenuID == 2)
+                                {
+                                    <a class="nav-link" href="@Url.Action("Burger", "FoodMenu")">@menu.MenuName</a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link" href="#">@menu.MenuName</a>
+                                }
                             </li>
                         }
-                        else 
+                        else
                         {
                             <li>
-                                <a class="nav-link" href="#">@menu.MenuName</a>
+                                @if (menu.MenuID == 2)
+                                {
+                                    <a class="nav-link" href="@Url.Action("Burger", "FoodMenu")">@menu.MenuName</a>
+                                }
+                                else
+                                {
+                                    <a class="nav-link" href="#">@menu.MenuName</a>
+                                }
                                 <ul>
                                     @foreach (var nMenu in sMenu)
                                     {
-                                        <li><a href="#">@nMenu.MenuName</a></li>
+                                        <li>
+                                            @if (nMenu.MenuID == 2)
+                                            {
+                                                <a href="@Url.Action("Burger", "FoodMenu")">@nMenu.MenuName</a>
+                                            }
+                                            else
+                                            {
+                                                <a href="#">@nMenu.MenuName</a>
+                                            }
+                                        </li>
                                     }
                                 </ul>
                             </li>

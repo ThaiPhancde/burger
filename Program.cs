@@ -27,9 +27,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
 name: "areas",
 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-
 app.MapControllerRoute(
 name: "default",
 pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapControllerRoute(
+    name: "foodmenu",
+    pattern: "{controller=FoodMenu}/{action=Burger}/{id?}");
 app.Run();

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BWkQKc2ZDlbagMfmjXQHPIPd/SEKjS5Kp+hyLop8sR9f6ZiP1vmTGtS7YYK/5OeTmIMNJMdiuMS6O3rF2l7xSg==",
+  "dgSpecHash": "mGcYwlM2W0kXI3PAfv3HALpVBHqGYqjg/y19rWANzLvbjfykvUDmfxwqidlZGjN8pPQrMLrbrG2/+a8wm010HA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\burger.csproj",
   "expectedPackageFiles": [
@@ -122,6 +122,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\nuget.projectmodel\\6.9.1\\nuget.projectmodel.6.9.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\nuget.protocol\\6.9.1\\nuget.protocol.6.9.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\nuget.versioning\\6.9.1\\nuget.versioning.6.9.1.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\sluggenerator\\2.0.2\\sluggenerator.2.0.2.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.composition\\7.0.0\\system.composition.7.0.0.nupkg.sha512",

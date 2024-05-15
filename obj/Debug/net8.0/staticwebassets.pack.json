@@ -273,6 +273,10 @@
       "PackagePath": "staticwebassets\\admin\\assets\\images\\sprites\\yellow.png"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\js\\carousel.js",
+      "PackagePath": "staticwebassets\\admin\\assets\\js\\carousel.js"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\admin\\assets\\js\\chart.js",
       "PackagePath": "staticwebassets\\admin\\assets\\js\\chart.js"
     },
@@ -545,6 +549,10 @@
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.woff2"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\Burgerx.png",
+      "PackagePath": "staticwebassets\\assets\\images\\Burgerx.png"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\about.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\about.jpg"
     },
@@ -585,6 +593,22 @@
       "PackagePath": "staticwebassets\\assets\\images\\burger1.png"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\cheese-ring-beef-burger-jr.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cheese-ring-beef-burger-jr.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\cheese-ring-beef-burger.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cheese-ring-beef-burger.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\cheese-ring-burger.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cheese-ring-burger.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\combo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\combo.png"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\g1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\g1.jpg"
     },
@@ -617,12 +641,24 @@
       "PackagePath": "staticwebassets\\assets\\images\\g8.jpg"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\garan.png",
+      "PackagePath": "staticwebassets\\assets\\images\\garan.png"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\googleplay.png",
       "PackagePath": "staticwebassets\\assets\\images\\googleplay.png"
     },
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\mobile.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\mobile.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\monankem.png",
+      "PackagePath": "staticwebassets\\assets\\images\\monankem.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\new.png",
+      "PackagePath": "staticwebassets\\assets\\images\\new.png"
     },
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\pay1.png",

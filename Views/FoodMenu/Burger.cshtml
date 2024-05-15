@@ -1,0 +1,55 @@
+@model IList<burger.Models.ViewBurger>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/assets/css/style-starter.css">
+    <link href="~/Content/style-starter.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    @await Component.InvokeAsync("MenuView")
+
+            <h1 class="text-center">Our Delicious Burgers</h1>
+        
+    <section class="burger-menu py-5">
+        <div class="container py-md-5">
+            <div class="row">
+                @foreach (var burger in Model)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="menu-item card h-100">
+                            <a href="@burger.Link" title="@burger.Name">
+                                <img src="@Url.Content(burger.Image)" class="card-img-top img-fluid" alt="@burger.Name">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="@burger.Link" title="@burger.Name">@burger.Name</a>
+                                </h5>
+                                <p class="card-text">@burger.Details</p>
+                                <div class="price">@burger.Price VND</div>
+                                <a href="@Url.Action("AddToCart", "Order", new { id = burger.BurgerID })" class="btn btn-primary mt-2">Order Now</a>
+                                <div class="actions mt-2">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="@Url.Action("AddToWishlist", "Wishlist", new { id = burger.BurgerID })" class="link-wishlist">Add to Wishlist</a>
+                                        </li>
+                                        <li class="list-inline-item">|</li>
+                                        <li class="list-inline-item">
+                                            <a href="@Url.Action("AddToCompare", "Compare", new { id = burger.BurgerID })" class="link-compare">Compare</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,47 @@
+@model IList<burger.Models.tblDeals>
+@{
+    ViewData["Title"] = "Deals";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/assets/css/style-starter.css">
+    <link href="~/Content/style-starter.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<!-- Banner -->
+
+<section class="banner" style="margin-top: 50px;"> <!-- Thêm margin-top vào đây -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Special Deals</h1>
+                <p>Check out our latest deals and discounts</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Deals -->
+<section class="deals">
+    <div class="container">
+        <div class="row">
+            @foreach (var deal in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="deal-item">
+                        <img src="@Url.Content(deal.ImageUrl)" alt="@deal.Title" class="img-fluid">
+                        <h3>@deal.Title</h3>
+                        <p>Original Price: @deal.OriginalPrice VND</p>
+                        <p>Discounted Price: @deal.DiscountedPrice VND</p>
+                        <div class="description">
+                            <p>@deal.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

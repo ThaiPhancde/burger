@@ -1,0 +1,106 @@
+@model IList<burger.Models.StoreAddress>
+@{
+    ViewData["Title"] = "Store Address";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/assets/css/style-starter.css">
+    <link href="~/Content/style-starter.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <style>
+        /* Add custom CSS styles here if needed */
+    </style>
+</head>
+
+<body>
+    <section class="store-address py-5">
+        <div class="container py-md-5">
+            <h1 class="text-center">Search Store Address</h1>
+            <div class="storepickup-list">
+                <div class="page-title">
+                    <div itemscope itemtype="http://schema.org/Article">
+                        <h2 itemprop="name" class="headline">Search by City, District</h2>
+                        <br>
+                        <form class="form-inline" role="form">
+                            <div class="form-group wrap_form_search">
+                                <div class="form-group mr-3">
+                                    <select class="form-control" name="cityId" id="cityId" onchange="loadDistricts()">
+                                        <option value="">--Please select a city--</option>
+                                        
+                                        @* @foreach (var city in ViewBag.Cities)
+                                        {
+                                            <option value="@city.Id">@city.Name</option>
+                                        } *@
+                                    </select>
+                                </div>
+                                <div class="form-group mr-3" id="districtSelect">
+                                    <select class="form-control" name="districtId" id="districtId">
+                                        <option value="">Please select a district</option>
+                                    </select>
+                                </div>
+                                <button type="button " class="btn btn-primary btn-store" onclick="searchStores()">Search</button>
+                                <span class="help-block"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+<br><br>
+                <div id="storeList" class="row">
+                    @foreach (var store in Model)
+                    {
+                        <div class="col-md-4 mb-4">
+                            <div class="store-info border rounded p-3">
+                                <h3 class="mb-3">BURGER BUN @store.StoreName</h3>
+                                <p class="mb-2">Address: @store.Address</p>
+                                <p class="mb-2">Phone: @store.Phone</p>
+                                <p>Opening hours: @store.WorkingTime</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div id="storeMap" style="height: 400px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function loadDistricts() {
+            var cityId = $('#cityId').val();
+            $.ajax({
+                url: '@Url.Action("GetDistrictsByCity", "StoreAddress")',
+                type: 'GET',
+                data: { cityId: cityId },
+                success: function (data) {
+                    $('#districtId').empty();
+                    $('#districtId').append('<option value="">Please select a district</option>');
+                    $.each(data, function (index, district) {
+                        $('#districtId').append('<option value="' + district.Id + '">' + district.Name + '</option>');
+                    });
+                }
+            });
+        }
+
+        function searchStores() {
+            var cityId = $('#cityId').val();
+            var districtId = $('#districtId').val();
+
+            $.ajax({
+                url: '@Url.Action("GetStoresByCityAndDistrict", "StoreAddress")',
+                type: 'GET',
+                data: { cityId: cityId, districtId: districtId },
+                success: function (data) {
+                    $('#storeList').empty();
+                    $.each(data, function (index, store) {
+                        var storeInfo = '<div class="store-info"><h3>' + store.StoreName + '</h3><p>' + store.Address + ', ' + store.District.Name + ', ' + store.City.Name + '</p><p>Phone: ' + store.Phone + '</p><p>Opening hours: ' + store.WorkingTime + '</p></div>';
+                        $('#storeList').append(storeInfo);
+                    });
+                }
+            });
+        }
+    </script>
+</body>

@@ -20,7 +20,6 @@ namespace burger.Controllers
             var listOfBurgers = await _context.ViewBurger
                                  .Where(b => b.IsActive == true)
                                  .OrderByDescending(b => b.BurgerID)
-                                 .Take(9)
                                  .ToListAsync();
             return View(listOfBurgers);
         }

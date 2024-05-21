@@ -1,0 +1,39 @@
+@model List<burger.Models.CartItem>
+@using System.Globalization;
+
+<li class="nav-item header-minicart"> <a href="#header-cart" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">@Model.Count</span>
+    </a>
+
+    <div id="header-cart" class="cart-dropdown">
+        <h4>Your Cart</h4>
+
+        @if (Model.Count > 0)
+        {
+            <ul class="cart-items">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <span class="item-name">@item.FoodName</span>
+                        <span class="item-price">@item.Price.ToString("C", CultureInfo.CreateSpecificCulture("vi-VN"))</span>
+                        <span class="item-quantity">x @item.Quantity</span>
+                    </li>
+                }
+            </ul>
+
+            <div class="cart-total">
+                Total: @(Model.Sum(item => item.TotalPrice)).ToString("C", CultureInfo.CreateSpecificCulture("vi-VN"))
+            </div>
+
+            <div class="cart-actions">
+                <a href="@Url.Action("Index", "Cart")" class="btn btn-primary">View Cart</a>
+                <a href="@Url.Action("Checkout", "Cart")" class="btn btn-secondary">Checkout</a>
+            </div>
+        }
+        else
+        {
+            <p class="empty-cart">Your cart is empty.</p>
+        }
+    </div>
+</li>

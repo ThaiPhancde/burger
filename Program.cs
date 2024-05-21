@@ -30,9 +30,18 @@ app.MapControllerRoute(
 name: "areas",
 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute(
-name: "default",
+name: "Default",
 pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapControllerRoute(
-    name: "foodmenu",
+    name: "Foodmenu",
     pattern: "{controller=FoodMenu}/{action=Burger}/{id?}");
+app.MapControllerRoute(
+    name: "Deals",
+    pattern: "{controller=Deals}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "Cart",
+    pattern: "{controller=Cart}/{action=CartView}/{id?}");
+app.MapControllerRoute(
+    name: "Address",
+    pattern: "{controller=StoreAddress}/{action=Index}/{id?}");
 app.Run();

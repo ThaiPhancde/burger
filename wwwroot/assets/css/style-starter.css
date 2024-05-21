@@ -12568,5 +12568,32 @@ h3.title-small span {
     line-height: 28px; }
   .cont-details address p {
     font-size: 18px; } }
+/* Ensure the cart icon doesn't push other elements */
+.header-minicart {
+  position: relative; /* Allow for absolute positioning of dropdown */
+}
+
+.cart-icon {
+  display: inline-flex; /* Keep icon and count in line */
+  align-items: center;
+}
+
+/* Dropdown styling */
+.cart-dropdown {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Position below the icon */
+  right: 0;
+  min-width: 250px; /* Adjust as needed */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  z-index: 10; /* Ensure dropdown is above other elements */
+}
+
+/* Show dropdown on hover (or click, if preferred) */
+.header-minicart:hover .cart-dropdown {
+  display: block;
+}
 
 /*# sourceMappingURL=style-starter.css.map */

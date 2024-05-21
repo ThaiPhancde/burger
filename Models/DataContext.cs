@@ -10,5 +10,6 @@ namespace burger.Models
         public DbSet<tblMenu> Menu { get; set; }
         public DbSet<AdminMenu> AdminMenu { get; set; }
         public DbSet<ViewBurger> ViewBurger { get; set; }
+        public DbSet<AdminUser> AdminUser { get; set; }
     }
 }

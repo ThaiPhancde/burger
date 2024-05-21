@@ -23,42 +23,22 @@
                     {
                         var pID = menu.MenuID;
                         var sMenu = Model.Where(s => s.ParentID == pID).OrderBy(n => n.MenuOrder).ToList();
+
                         if (sMenu.Count() == 0)
                         {
                             <li class="nav-item">
-                                @if (menu.MenuID == 2)
-                                {
-                                    <a class="nav-link" href="@Url.Action("Burger", "FoodMenu")">@menu.MenuName</a>
-                                }
-                                else
-                                {
-                                    <a class="nav-link" href="#">@menu.MenuName</a>
-                                }
+                                <a class="nav-link" href="@Url.Action(menu.ActionName, menu.ControllerName)">@menu.MenuName</a>
                             </li>
                         }
                         else
                         {
                             <li>
-                                @if (menu.MenuID == 2)
-                                {
-                                    <a class="nav-link" href="@Url.Action("Burger", "FoodMenu")">@menu.MenuName</a>
-                                }
-                                else
-                                {
-                                    <a class="nav-link" href="#">@menu.MenuName</a>
-                                }
+                                <a class="nav-link" href="@Url.Action(menu.ActionName, menu.ControllerName)">@menu.MenuName</a>
                                 <ul>
                                     @foreach (var nMenu in sMenu)
                                     {
                                         <li>
-                                            @if (nMenu.MenuID == 2)
-                                            {
-                                                <a href="@Url.Action("Burger", "FoodMenu")">@nMenu.MenuName</a>
-                                            }
-                                            else
-                                            {
-                                                <a href="#">@nMenu.MenuName</a>
-                                            }
+                                            <a href="@Url.Action(nMenu.ActionName, nMenu.ControllerName)">@nMenu.MenuName</a>
                                         </li>
                                     }
                                 </ul>

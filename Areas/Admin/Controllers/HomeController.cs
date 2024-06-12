@@ -11,6 +11,13 @@ public class HomeController :  Controller
           return RedirectToAction("Index", "Login");
         return View();
     }
+
+     public IActionResult cart()
+    {   
+        if(!Functions.IsLogin())
+          return RedirectToAction("Index", "Login");
+        return View();
+    }
     public IActionResult Logout(){
         Functions._UserID = 0;
         Functions._UserName = string.Empty;

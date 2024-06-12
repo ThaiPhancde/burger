@@ -593,6 +593,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\burger1.png"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\cart.png",
+      "PackagePath": "staticwebassets\\assets\\images\\cart.png"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\cheese-ring-beef-burger-jr.png",
       "PackagePath": "staticwebassets\\assets\\images\\cheese-ring-beef-burger-jr.png"
     },

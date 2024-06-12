@@ -22,7 +22,7 @@
                                 </h5>
                                 <p class="card-text">@Drink.Details</p>
                                 <div class="price">@Drink.Price VND</div>
-                                <a href="@Url.Action("AddToCart", "Order", new { id = Drink.DrinkID })" class="btn btn-primary mt-2">Order Now</a>
+                                <a href="@Url.Action("Index", "Cart", new { id = Drink.DrinkID })" class="btn btn-primary mt-2">Order Now</a>
                                 <div class="actions mt-2">
                                     <ul class="list-inline">
                                         <li class="list-inline-item">

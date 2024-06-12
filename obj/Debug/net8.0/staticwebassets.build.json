@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "atF7wLvFOOwGdcdkDH1w/MPhh0BIKT02H6ECFoJe7Xs=",
+  "Hash": "tuqbPEJcEepAgG0//yHnUuIHH8g03oqa8nhUu34+AJg=",
   "Source": "burger",
   "BasePath": "_content/burger",
   "Mode": "Default",
@@ -2846,6 +2846,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\Burgerx.png"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\cart.png",
+      "SourceId": "burger",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\",
+      "BasePath": "_content/burger",
+      "RelativePath": "assets/images/cart.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\cart.png"
     },
     {
       "Identity": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\cheese-ring-beef-burger-jr.png",

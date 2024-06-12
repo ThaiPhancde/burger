@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.2",
+          "Newtonsoft.Json": "13.0.3",
           "PagedList.Core.Mvc": "3.0.0",
           "SlugGenerator": "2.0.2",
           "elFinder.NetCore": "1.4.0"

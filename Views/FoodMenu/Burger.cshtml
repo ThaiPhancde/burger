@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <body>
-        <h1 class="text-center">Our Delicious </h1>
+        <h1 class="text-center mt-5">Our Delicious </h1>
     
     <section class="burger-menu py-5">
         <div class="container py-md-5">
@@ -22,7 +22,7 @@
                                 </h5>
                                 <p class="card-text">@burger.Details</p>
                                 <div class="price">@burger.Price VND</div>
-                                <a href="@Url.Action("AddToCart", "Order", new { id = burger.BurgerID })" class="btn btn-primary mt-2">Order Now</a>
+                                <a href="@Url.Action("Index", "Cart")" class="btn btn-primary mt-2">Order Now</a>
                                 <div class="actions mt-2">
                                     <ul class="list-inline">
                                         <li class="list-inline-item">

@@ -3,7 +3,7 @@
 <header id="site-header" class="fixed-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg stroke px-0">
-            <h1> <a class="navbar-brand" href="index.html">
+            <h1> <a class="navbar-brand" href="@Url.Action("Index", "Home")">
                     <img src="~/assets/images/burger.png" alt="burger logo" width="35px" /> Burger Bun
                 </a></h1>
             <!-- if logo is image enable this   
@@ -23,7 +23,6 @@
                     {
                         var pID = menu.MenuID;
                         var sMenu = Model.Where(s => s.ParentID == pID).OrderBy(n => n.MenuOrder).ToList();
-
                         if (sMenu.Count() == 0)
                         {
                             <li class="nav-item">
@@ -32,20 +31,20 @@
                         }
                         else
                         {
-                            <li>
-                                <a class="nav-link" href="@Url.Action(menu.ActionName, menu.ControllerName)">@menu.MenuName</a>
-                                <ul>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@menu.MenuName</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     @foreach (var nMenu in sMenu)
                                     {
                                         <li>
-                                            <a href="@Url.Action(nMenu.ActionName, nMenu.ControllerName)">@nMenu.MenuName</a>
+                                            <a class="dropdown-item" href="@Url.Action(nMenu.ActionName, nMenu.ControllerName)">@nMenu.MenuName</a>
                                         </li>
                                     }
                                 </ul>
                             </li>
                         }
                     }
-                    </li>
                     <!--/search-right-->
                     <div class="search-right">
                         <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
@@ -63,10 +62,10 @@
                             <a class="close" href="#close">×</a>
                         </div>
                         <!-- CartView Component -->
-                    @* <div class="nav-item">
+                        @* <div class="nav-item">
                         @await Component.InvokeAsync("CartView")
-                    </div> *@
-                    <!-- End of CartView Component -->
+                        </div> *@
+                        <!-- End of CartView Component -->
                         <!-- /search popup -->
                     </div>
                     <!--//search-right-->
@@ -90,4 +89,3 @@
         </nav>
     </div>
 </header>
-<!--/header-->

@@ -39,5 +39,10 @@ namespace burger.Utilities{
                 str = MD5Hash(str + str);
             return str;
         }
+        public static bool IsLogin(){
+            if ((Functions._UserID <= 0) || string.IsNullOrEmpty(Functions._UserName) || string.IsNullOrEmpty(Functions._Email))
+             return false;
+            return true;
+        }
     }
 }

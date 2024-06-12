@@ -30,25 +30,34 @@
                                 <div class="form-group mr-3">
                                     <select class="form-control" name="cityId" id="cityId" onchange="loadDistricts()">
                                         <option value="">--Please select a city--</option>
-                                        
+
                                         @* @foreach (var city in ViewBag.Cities)
                                         {
-                                            <option value="@city.Id">@city.Name</option>
+                                        <option value="@city.Id">@city.Name</option>
                                         } *@
                                     </select>
                                 </div>
+
                                 <div class="form-group mr-3" id="districtSelect">
                                     <select class="form-control" name="districtId" id="districtId">
                                         <option value="">Please select a district</option>
                                     </select>
                                 </div>
-                                <button type="button " class="btn btn-primary btn-store" onclick="searchStores()">Search</button>
+                                <button type="button " class="btn btn-primary btn-store"
+                                    onclick="searchStores()">Search</button>
                                 <span class="help-block"></span>
                             </div>
                         </form>
                     </div>
                 </div>
-<br><br>
+                <br>
+                <div class="aa-contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29793.988211049866!2d105.8369637!3d21.022739599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zSMOgIE7hu5lpLCBIb8OgbiBLaeG6v20sIEjDoCBO4buZaQ!5e0!3m2!1svi!2s!4v1657789567451!5m2!1svi!2s"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <br>
                 <div id="storeList" class="row">
                     @foreach (var store in Model)
                     {

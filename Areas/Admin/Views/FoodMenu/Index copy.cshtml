@@ -1,0 +1,50 @@
+@using burger.Models @using PagedList.Core.Mvc 
+@model PagedList.Core.IPagedList<tblBurger> 
+@{
+    Layout =
+        "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+} <main id="main" class="main">
+    <div class="pagetitle">
+        <h2>List of Burgers</h2>
+    </div>
+    <div class="container shadow p-4 mb-4 bg-white rounded">
+        <div class="row mb-3">
+            <div class="col-md-6"> <a type="button" class="btn btn-success" asp-area="Admin" asp-controller="FoodMenu"
+                    asp-action="CreateBurger"> <i class="mdi mdi-file-document"></i> Add a new burger </a> </div>
+            <div class="col-md-6">
+                <ul class="pagination float-end">
+                    <pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly"
+                        list="@Model"></pager>
+                </ul>
+            </div>
+        </div>
+        <div class="card recent-sales overflow-auto">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-1 text-center">BurgerID</th>
+                            <th class="col-9 text-left">Name</th>
+                            <th class="col-2 text-center">Functions</th>
+                        </tr>
+                    </thead>
+                    <tbody> @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center" scope="row">@item.BurgerID</td>
+                                <td class="text-left text-primary" scope="row"> <a asp-controller="FoodMenu"
+                                        asp-action="Details" asp-route-id="@item.BurgerID"
+                                        class="text-primary">@item.Name</a> </td>
+                                <td class="text-center" scope="row"> <a asp-area="Admin" asp-controller="FoodMenu"
+                                        asp-action="Edit" asp-route-id="@item.BurgerID" class="btn btn-primary btn-sm"
+                                        title="Edit the burger"> <i class="mdi mdi-pencil"></i> </a> <a asp-area="Admin"
+                                        asp-controller="FoodMenu" asp-action="Delete" asp-route-id="@item.BurgerID"
+                                        class="btn btn-danger btn-sm" title="Delete the burger"> <i
+                                            class="mdi mdi-trash-can"></i> </a> </td>
+                            </tr>
+                        } </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

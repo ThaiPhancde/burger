@@ -4,7 +4,7 @@ using burger.Models;
 using burger.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace aznews.Areas.Admin.Controllers
+namespace burger.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class RegisterController : Controller

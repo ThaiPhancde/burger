@@ -1,4 +1,5 @@
 using burger.Models;
+using burger.Utilities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 namespace burger.Areas.Admin.Controllers
@@ -40,32 +41,31 @@ namespace burger.Areas.Admin.Controllers
         }
         public IActionResult Create()
         {
-            var mmList = (from m in _context.Menu
+            var mnList = (from m in _context.Menu
                           select new SelectListItem()
                           {
                               Text = (m.Levels == 1) ? m.MenuName : "-- " + m.MenuName,
                               Value = m.MenuID.ToString()
                           }).ToList();
-            mmList.Insert(0, new SelectListItem()
+            mnList.Insert(0, new SelectListItem()
             {
                 Text = "--- select ---",
                 Value = "0"
             });
-            ViewBag.mmList = mmList;
+            ViewBag.mnList = mnList;
             return View();
         }
 
         [HttpPost]
-        [Obsolete("references")]
-        public IActionResult Create(tblMenu mm)
+        public IActionResult Create(tblMenu mn)
         {
             if (ModelState.IsValid)
             {
-                _context.Menu.Add(mm);
+                _context.Menu.Add(mn);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(mm);
+            return View(mn);
         }
         public IActionResult Edit(int? id)
         {

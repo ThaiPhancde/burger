@@ -15,6 +15,6 @@ namespace burger.Models
         public int FoodOrder { get; set; }
         public int FMenuID { get; set; }
         public int Price { get; set; }
-        public string? FMenuName { get; set; }
+        public string? MenuName { get; set; }
     }
 }

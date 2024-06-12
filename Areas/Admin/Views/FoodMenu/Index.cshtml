@@ -1,0 +1,75 @@
+@using burger.Models
+@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<object>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>List of Products</h2>
+    </div>
+    <div class="container shadow p-4 mb-4 bg-white rounded">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
+                    <i class="mdi mdi-plus"></i> Add a new product
+                </a>
+            </div>
+            <div class="col-md-6">
+                <select id="productType" class="form-select">
+                    <option value="">All Products</option>
+                    <option value="Burger">Burgers</option>
+                    <option value="Combo">Combos</option>
+                    <option value="FriedChicken">Fried Chickens</option>
+                    <option value="Drink">Drinks</option>
+                    <option value="HappySnack">Happy Snacks</option>
+                </select>
+            </div>
+        </div>
+        <div id="productList">
+            <!-- Danh sách sản phẩm sẽ được load tại đây -->
+        </div>
+    </div>
+</main>
+
+<!-- Create Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <!-- ... -->
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            loadProducts(); // Load initial products on page load
+
+            $("#productType").change(function () {
+                loadProducts(); // Reload products when the dropdown changes
+            });
+
+            // Event delegation for pagination links (since they are dynamically loaded)
+            $(document).on("click", "#productList .pagination a", function (event) {
+                event.preventDefault();
+                var href = $(this).attr("href");
+                var page = new URL(href).searchParams.get("page");
+                loadProducts(page);
+            });
+        });
+
+        function loadProducts(page = 1) {
+            var type = $("#productType").val();
+            $.ajax({
+                url: "@Url.Action("GetProductsByType", "FoodMenu", new { area = "Admin" })",
+                data: { type: type, page: page },
+                success: function (result) {
+                    $("#productList").html(result);
+                    $("#errorMessage").hide();
+                },
+                error: function () {
+                    $("#errorMessage").text("Đã xảy ra lỗi khi tải sản phẩm.").show();
+                }
+            });
+        }
+    </script>
+}

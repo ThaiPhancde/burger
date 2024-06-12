@@ -1,0 +1,52 @@
+@model PagedList.Core.IPagedList<dynamic>
+
+@{
+    var propertyMap = new Dictionary<string, string>
+    {
+        { "Burger", "BurgerID" },
+        { "Combo", "ComboID" },
+        { "FriedChicken", "FriedChickenID" },
+        { "Drink", "DrinkID" },
+        { "HappySnack", "HappySnackID" }
+    };
+}
+
+<div class="card recent-sales overflow-auto">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="col-1 text-center">ID</th>
+                    <th class="col-4 text-left">Name</th>
+                    <th class="col-4 text-left">Details</th>
+                    <th class="col-1 text-center">Price</th>
+                    <th class="col-2 text-center">Functions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var idProperty = propertyMap[ViewBag.Type];
+                    var idValue = item.GetType().GetProperty(idProperty)?.GetValue(item, null);
+
+                    <tr>
+                        <td class="text-center">@idValue</td>
+                        <td class="text-left text-primary">
+                            <a asp-controller="FoodMenu" asp-action="Details" asp-route-id="@idValue" class="text-primary">@item.Name</a>
+                        </td>
+                        <td class="text-left">@item.Details</td>
+                        <td class="text-center">@item.Price</td>
+                        <td class="text-center">
+                            <a asp-area="Admin" asp-controller="FoodMenu" asp-action="Edit" asp-route-id="@idValue" class="btn btn-primary btn-sm" title="Edit the product">
+                                <i class="mdi mdi-pencil"></i>
+                            </a>
+                            <a asp-area="Admin" asp-controller="FoodMenu" asp-action="Delete" asp-route-id="@idValue" class="btn btn-danger btn-sm" title="Delete the product">
+                                <i class="mdi mdi-trash-can"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

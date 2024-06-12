@@ -1,0 +1,45 @@
+@model IList<burger.Models.ViewCombo>
+@{
+    ViewData["Title"] = "Combo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+        <h1 class="text-center">Our Delicious </h1>
+    
+    <section class="Combo-menu py-5">
+        <div class="container py-md-5">
+            <div class="row">
+                @foreach (var Combo in Model)
+                {
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="menu-item card h-100">
+                            <a href="@Combo.Link" title="@Combo.Name">
+                                <img src="@Url.Content(Combo.Image)" class="card-img-top img-fluid" alt="@Combo.Name">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="@Combo.Link" title="@Combo.Name">@Combo.Name</a>
+                                </h5>
+                                <p class="card-text">@Combo.Details</p>
+                                <div class="price">@Combo.Price VND</div>
+                                <a href="@Url.Action("AddToCart", "Order", new { id = Combo.ComboID })" class="btn btn-primary mt-2">Order Now</a>
+                                <div class="actions mt-2">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="@Url.Action("AddToWishlist", "Wishlist", new { id = Combo.ComboID })" class="link-wishlist">Add to Wishlist</a>
+                                        </li>
+                                        <li class="list-inline-item">|</li>
+                                        <li class="list-inline-item">
+                                            <a href="@Url.Action("AddToCompare", "Compare", new { id = Combo.ComboID })" class="link-compare">Compare</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+        </div>
+    </div>
+</section>
+</body>
+

@@ -1,0 +1,72 @@
+@using burger.Models
+@model tblBurger
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Add a new burger</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="CreateBurger" method="Post">
+                    <div class="form-group col-md-6 mb-3">
+                        <label>Menu name</label>
+                        <select asp-for="FMenuID" class="form-control"
+                            asp-items="@(new SelectList(ViewBag.mnList, "Value", "Text"))" id="FMenuID">
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Image</label>
+                        <input asp-for="Image" class="form-control" />
+                        <span asp-validation-for="Image" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Details</label>
+                        <textarea asp-for="Details" class="form-control"></textarea>
+                        <span asp-validation-for="Details" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Link</label>
+                        <input asp-for="Link" class="form-control" />
+                        <span asp-validation-for="Link" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Price</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Order</label>
+                        <input asp-for="FoodOrder" class="form-control" />
+                        <span asp-validation-for="FoodOrder" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            @Html.CheckBox("IsActive", false)
+                            Visible
+                        </label>
+                    </div>
+
+                    <div class="form-group mt-5">
+                        <button type="submit" value="Create" class="btn btn-primary">Save Information</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

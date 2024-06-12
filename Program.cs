@@ -1,10 +1,12 @@
 using burger.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Net.Security;
+using Microsoft.Extensions.FileProviders;
 
-    var builder = WebApplication.CreateBuilder(args);
-    var connection = builder.Configuration.GetConnectionString("DefaultConnection");
-    builder.Services.AddDbContext<DataContext>(option => option.UseSqlServer(connection));
+var builder = WebApplication.CreateBuilder(args);
+
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<DataContext>(option => option.UseSqlServer(connection));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -18,7 +20,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -27,21 +28,35 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-name: "areas",
-pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
-name: "Default",
-pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "Default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
-    name: "Foodmenu",
-    pattern: "{controller=FoodMenu}/{action=Burger}/{id?}");
+    name: "Contact",
+    pattern: "{controller=Home}/{action=Contact}/{id?}");
+
 app.MapControllerRoute(
     name: "Deals",
     pattern: "{controller=Deals}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "Cart",
     pattern: "{controller=Cart}/{action=CartView}/{id?}");
+
 app.MapControllerRoute(
     name: "Address",
     pattern: "{controller=StoreAddress}/{action=Index}/{id?}");
+
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "uploads")
+    ),
+    RequestPath = "/files"
+});
+
 app.Run();

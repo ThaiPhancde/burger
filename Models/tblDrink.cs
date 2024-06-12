@@ -13,7 +13,8 @@ namespace burger.Models
         public string? Link { get; set; }
         public bool? IsActive { get; set; }
         public int FoodOrder { get; set; }
-        public int FMenuID { get; set; }
+
+        [ForeignKey("FMenuID")]        public int FMenuID { get; set; }
         public int Price { get; set; }
     }
 }

@@ -1,0 +1,60 @@
+﻿@model IList<burger.Models.tblDeals>
+@{
+    ViewData["Title"] = "Deals";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="col-md-10 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Deals List</h4>
+            <p>
+                <a href="@Url.Action("Create", "Deals", new { area = "Admin" })" class="btn btn-inverse-danger btn-fw">
+                    <i class="text-primary"></i>Add New Deal
+                </a>
+            </p>
+            <div class="table-responsive">
+                <table class="table table-bordered datatable">
+                    <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th class="text-center">Title</th>
+                            <th class="text-center">Description</th>
+                            <th class="text-center">Image</th>
+                            <th class="text-center">Original Price</th>
+                            <th class="text-center">Discounted Price</th>
+                            <th class="text-center">Discount Percentage</th>
+                            <th class="text-center">Active</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">@item.DealID</td>
+                                <td class="text-center">@item.Title</td>
+                                <td class="text-center">@item.Description</td>
+                                <td class="text-center"><img src="@item.ImageUrl" alt="Deal Image" style="max-width: 100px;" /></td>
+                                <td class="text-center">@item.OriginalPrice</td>
+                                <td class="text-center">@item.DiscountedPrice</td>
+                                <td class="text-center">@item.DiscountPercentage %</td>
+                                <td class="text-center">@item.IsActive</td>
+                                <td class="text-center d-flex justify-content-center">
+                                    <div class="d-inline-flex">
+                                        <a href="@Url.Action("Edit", "Deals", new { area = "Admin", id = item.DealID })" class="btn btn-inverse-success btn-icon btn-sm d-flex align-items-center me-2" title="Edit Deal">
+                                            <i class="mdi mdi-lead-pencil"></i>
+                                        </a>
+                                        <a href="@Url.Action("Delete", "Deals", new { area = "Admin", id = item.DealID })" class="btn btn-inverse-danger btn-icon btn-sm d-flex align-items-center" title="Delete Deal">
+                                            <i class="mdi mdi-delete-forever"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

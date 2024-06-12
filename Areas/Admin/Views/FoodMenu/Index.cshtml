@@ -1,75 +1,71 @@
-@using burger.Models
 @using PagedList.Core.Mvc
-@model PagedList.Core.IPagedList<object>
+@model PagedList.Core.IPagedList<burger.Models.tblBurger>
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "List of Food Menu";
 }
 
 <main id="main" class="main">
     <div class="pagetitle">
-        <h2>List of Products</h2>
-    </div>
-    <div class="container shadow p-4 mb-4 bg-white rounded">
-        <div class="row mb-3">
-            <div class="col-md-6">
-                <a type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
-                    <i class="mdi mdi-plus"></i> Add a new product
-                </a>
+        <h2>@ViewData["Title"]</h2>
+        <div class="row">
+            <div class="col-4">
+                <a type="button" class="btn btn-inverse-danger btn-fw" asp-area="Admin" asp-controller="FoodMenu" asp-action="Create">
+                    <i class="text-primary"></i>Add new item</a>
             </div>
-            <div class="col-md-6">
-                <select id="productType" class="form-select">
-                    <option value="">All Products</option>
-                    <option value="Burger">Burgers</option>
-                    <option value="Combo">Combos</option>
-                    <option value="FriedChicken">Fried Chickens</option>
-                    <option value="Drink">Drinks</option>
-                    <option value="HappySnack">Happy Snacks</option>
-                </select>
+            <div class="col-8">
+                <div>
+                    <ul class="pagination float-end">
+                        <pager class="pager-container" options="@PagedListRenderOptions.Bootstrap4PageNumbersOnly"
+                               list="@Model"></pager>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div id="productList">
-            <!-- Danh sách sản phẩm sẽ được load tại đây -->
-        </div>
+        <section class="section dashboard">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card recent-sales overflow-auto">
+                        <div class="card-body mt-4">
+                            <table class="table table-borderless datatable">
+                                <thead>
+                                    <tr>
+                                        <th class="col-1 text-center">BurgerID</th>
+                                        <th class="col-3 text-left">Name</th>
+                                        <th class="col-2 text-left">Image</th>
+                                        <th class="col-3 text-left">Details</th>
+                                        <th class="col-2 text-left">Menu</th>
+                                        <th class="col-1 text-center">Price</th>
+                                        <th class="col-2 text-center">Functions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="text-center" scope="row">@item.BurgerID</td>
+                                            <td class="text-left text-primary">@item.Name</td>
+                                            <td class="text-left">@item.Image</td>
+                                            <td class="text-left">@item.Details</td>
+                                            <td class="text-center">@item.Price</td>
+                                            <td class="text-center">
+                                                <a asp-area="Admin" asp-controller="FoodMenu" asp-action="Edit"
+                                                   asp-route-id="@item.BurgerID" class="btn btn-primary btn-sm"
+                                                   title="Edit"><i class="mdi mdi-lead-pencil"></i></a>
+
+                                                <a asp-area="Admin" asp-controller="FoodMenu" asp-action="Delete"
+                                                   asp-route-id="@item.BurgerID" class="btn btn-danger btn-sm"
+                                                   title="Delete"><i class="mdi mdi-delete-forever"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </main>
-
-<!-- Create Modal -->
-<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
-    <!-- ... -->
-</div>
-
-@section Scripts {
-    <script>
-        $(document).ready(function () {
-            loadProducts(); // Load initial products on page load
-
-            $("#productType").change(function () {
-                loadProducts(); // Reload products when the dropdown changes
-            });
-
-            // Event delegation for pagination links (since they are dynamically loaded)
-            $(document).on("click", "#productList .pagination a", function (event) {
-                event.preventDefault();
-                var href = $(this).attr("href");
-                var page = new URL(href).searchParams.get("page");
-                loadProducts(page);
-            });
-        });
-
-        function loadProducts(page = 1) {
-            var type = $("#productType").val();
-            $.ajax({
-                url: "@Url.Action("GetProductsByType", "FoodMenu", new { area = "Admin" })",
-                data: { type: type, page: page },
-                success: function (result) {
-                    $("#productList").html(result);
-                    $("#errorMessage").hide();
-                },
-                error: function () {
-                    $("#errorMessage").text("Đã xảy ra lỗi khi tải sản phẩm.").show();
-                }
-            });
-        }
-    </script>
-}

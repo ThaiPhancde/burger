@@ -10,6 +10,6 @@ namespace burger.Models
         public string? FMenuName { get; set; }
         public string? ControllerName { get; set; }
         public string? ActionName { get; set; }
-        public bool? IsActive { get; set; }
+        public bool IsActive { get; set; }
     }
 }

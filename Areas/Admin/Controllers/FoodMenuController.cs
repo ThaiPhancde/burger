@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using burger.Models;
 using Microsoft.AspNetCore.Mvc;
-using PagedList.Core;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.EntityFrameworkCore;
+using PagedList.Core;
 
 namespace burger.Areas.Admin.Controllers
 {
@@ -14,78 +14,61 @@ namespace burger.Areas.Admin.Controllers
     public class FoodMenuController : Controller
     {
         private readonly DataContext _context;
+
         public FoodMenuController(DataContext context)
         {
             _context = context;
         }
 
-        // Common method to get menu list for dropdowns
-        private List<SelectListItem> GetMenuList()
+        public IActionResult Index(int page = 1)
         {
-            var mnList = (from m in _context.FoodMenu
-                          select new SelectListItem()
-                          {
-                              Text = m.FMenuName,
-                              Value = m.FMenuID.ToString()
-                          }).ToList();
-            mnList.Insert(0, new SelectListItem()
+            var burgers = _context.Burger.OrderByDescending(b => b.BurgerID);
+            int pageSize = 5;
+            PagedList<tblBurger> models = new(burgers, page, pageSize);
+            if (models == null)
+                return NotFound();
+            return View(models);
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+                return NotFound();
+            var burger = _context.Burger.SingleOrDefault(b => b.BurgerID == id);
+            if (burger == null)
+                return NotFound();
+            return View(burger);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var delBurger = _context.Burger.SingleOrDefault(b => b.BurgerID == id);
+            if (delBurger == null)
+                return NotFound();
+            _context.Burger.Remove(delBurger);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Create()
+        {
+            var mnList = _context.Menu.Select(m => new SelectListItem
+            {
+                Text = m.MenuName,
+                Value = m.MenuID.ToString()
+            }).ToList();
+            mnList.Insert(0, new SelectListItem
             {
                 Text = "--- select ---",
                 Value = string.Empty
             });
-            return mnList;
-        }
-
-        public IActionResult Index(int page = 1)
-        {
+            ViewBag.mnList = mnList;
             return View();
         }
 
-        public IActionResult GetProductsByType(string type, int page = 1)
-        {   
-            ViewBag.Type = type;
-            IQueryable<object> allProducts = null;
-            switch (type)
-            {
-                case "Burger":
-                    allProducts = _context.Burger.Cast<object>();
-                    break;
-                case "Combo":
-                    allProducts = _context.Combo.Cast<object>();
-                    break;
-                case "FriedChicken":
-                    allProducts = _context.FriedChicken.Cast<object>();
-                    break;
-                case "Drink":
-                    allProducts = _context.Drink.Cast<object>();
-                    break;
-                case "HappySnack":
-                    allProducts = _context.HappySnack.Cast<object>();
-                    break;
-                default:
-                    allProducts = _context.Burger.Cast<object>()
-                        .Concat(_context.Combo.Cast<object>())
-                        .Concat(_context.FriedChicken.Cast<object>())
-                        .Concat(_context.Drink.Cast<object>())
-                        .Concat(_context.HappySnack.Cast<object>());
-                    break;
-            }
-
-            allProducts = allProducts.OrderByDescending(p => p.GetType().GetProperty("ID").GetValue(p, null));
-
-            int pageSize = 5;
-            PagedList<object> models = new(allProducts, page, pageSize);
-            return PartialView("_ProductList", models);
-        }
-
-        // Burger Actions
-        public IActionResult CreateBurger()
-        {
-            ViewBag.mnList = GetMenuList();
-            return View();
-        }
         [HttpPost]
-        public IActionResult CreateBurger(tblBurger burger)
+        public IActionResult Create(tblBurger burger)
         {
             if (ModelState.IsValid)
             {
@@ -93,84 +76,42 @@ namespace burger.Areas.Admin.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.mnList = GetMenuList();
             return View(burger);
         }
 
-        // Drink Actions
-        public IActionResult CreateDrink()
+        public IActionResult Edit(int? id)
         {
-            ViewBag.mnList = GetMenuList();
-            return View();
-        }
-        [HttpPost]
-        public IActionResult CreateDrink(tblDrink drink)
-        {
-            if (ModelState.IsValid)
+            if (id == null || id == 0)
+                return NotFound();
+            var burger = _context.Burger.SingleOrDefault(b => b.BurgerID == id);
+            if (burger == null)
+                return NotFound();
+
+            var mnList = _context.Menu.Select(m => new SelectListItem
             {
-                _context.Drink.Add(drink);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.mnList = GetMenuList();
-            return View(drink);
+                Text = m.MenuName,
+                Value = m.MenuID.ToString()
+            }).ToList();
+            mnList.Insert(0, new SelectListItem
+            {
+                Text = "--- select ---",
+                Value = string.Empty
+            });
+            ViewBag.mnList = mnList;
+
+            return View(burger);
         }
 
-        // FriedChicken Actions
-        public IActionResult CreateFriedChicken()
-        {
-            ViewBag.mnList = GetMenuList();
-            return View();
-        }
         [HttpPost]
-        public IActionResult CreateFriedChicken(tblFriedChicken friedChicken)
+        public IActionResult Edit(tblBurger burger)
         {
             if (ModelState.IsValid)
             {
-                _context.FriedChicken.Add(friedChicken);
+                _context.Burger.Update(burger);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.mnList = GetMenuList();
-            return View(friedChicken);
-        }
-
-        // Combo Actions
-        public IActionResult CreateCombo()
-        {
-            ViewBag.mnList = GetMenuList();
-            return View();
-        }
-        [HttpPost]
-        public IActionResult CreateCombo(tblCombo combo)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Combo.Add(combo);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.mnList = GetMenuList();
-            return View(combo);
-        }
-
-        // HappySnack Actions
-        public IActionResult CreateHappySnack()
-        {
-            ViewBag.mnList = GetMenuList();
-            return View();
-        }
-        [HttpPost]
-        public IActionResult CreateHappySnack(tblHappySnack happySnack)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.HappySnack.Add(happySnack);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.mnList = GetMenuList();
-            return View(happySnack);
+            return View(burger);
         }
     }
 }

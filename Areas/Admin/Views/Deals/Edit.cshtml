@@ -1,0 +1,62 @@
+@model burger.Models.tblDeals
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Edit a deal item</h2>
+    </div>
+    <div class="container shadow p-5">
+        <form method="Post" asp-action="Edit">
+            <div class="form-row">
+                <input type="hidden" asp-for="DealID" />
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Deal Title</label>
+                    <input type="text" class="form-control" asp-for="Title" placeholder="Deal title ... ">
+                    <span asp-validation-for="Title" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Description</label>
+                    <textarea class="form-control" asp-for="Description" placeholder="Description ..."></textarea>
+                    <span asp-validation-for="Description" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Image URL</label>
+                    <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Image URL ...">
+                    <span asp-validation-for="ImageUrl" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Original Price</label>
+                    <input type="number" class="form-control" asp-for="OriginalPrice" placeholder="Original price ...">
+                    <span asp-validation-for="OriginalPrice" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>Discounted Price</label>
+                    <input type="number" class="form-control" asp-for="DiscountedPrice" placeholder="Discounted price ...">
+                    <span asp-validation-for="DiscountedPrice" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group col-md-6 mb-3">
+                    <label>
+                        @Html.CheckBox("IsActive", Model.IsActive)
+                        Active
+                    </label>
+                </div>
+            </div>
+
+            <a asp-controller="Deals" asp-action="Index" class="btn btn-lg btn-warning p-2">
+                <i class="mdi mdi-arrow-left-bold-circle"></i>
+                Go back
+            </a>
+
+            <button type="submit" class="btn btn-lg btn-primary p-2">
+                <i class="mdi mdi-content-save-all"></i> Save information
+            </button>
+        </form>
+    </div>
+</main>

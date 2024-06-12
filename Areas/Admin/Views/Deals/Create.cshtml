@@ -1,0 +1,83 @@
+@using burger.Utilities;
+@model burger.Models.tblDeals
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h4>Deal management > Add a new deal</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Create" method="Post">
+                    <div class="form-group">
+                        <label class="control-label">Title</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <textarea asp-for="Description" class="form-control" id="summernote" rows="6"> </textarea>
+                        <span asp-validation-for="Description" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Image URL</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-success" type="button" onclick="openDialog()">Choose an image</button>
+                            </div>
+                            <input type="text" class="form-control" asp-for="ImageUrl" id="file_input" aria-describedby="button-addon2">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Original Price</label>
+                        <input asp-for="OriginalPrice" class="form-control" />
+                        <span asp-validation-for="OriginalPrice" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Discounted Price</label>
+                        <input asp-for="DiscountedPrice" class="form-control" />
+                        <span asp-validation-for="DiscountedPrice" class="text-danger mb-4"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            @Html.CheckBox("IsActive", false)
+                            Visible
+                        </label>
+                    </div>
+
+                    <div class="form-group mt-5">
+                        <button type="submit" value="Create" class="btn btn-primary" asp-action="Create" onclick="return checkValue()">Save Information</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SummerNote Initialization -->
+    @{
+        var summerNote = new burger.Areas.Admin.Models.SummerNote("#Description");
+        <partial name="_SummerNote" model="summerNote" />
+    }
+</main>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 200
+            });
+        });
+
+        function openDialog() {
+            // Logic to open file dialog
+        }
+    </script>
+}

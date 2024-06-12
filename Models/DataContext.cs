@@ -22,7 +22,6 @@ namespace burger.Models
         public DbSet<ViewHappySnack> ViewHappySnack { get; set; }
         public DbSet<AdminUser> AdminUser { get; set; }
         public DbSet<tblDeals> Deals { get; set; }
-        public DbSet<CartItem> CartItem { get; set; }
         public DbSet<StoreAddress> StoreAddress { get; set; }
     }
 }

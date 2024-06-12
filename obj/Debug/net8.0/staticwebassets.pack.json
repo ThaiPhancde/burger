@@ -605,8 +605,20 @@
       "PackagePath": "staticwebassets\\assets\\images\\cheese-ring-burger.png"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\chicken.png",
+      "PackagePath": "staticwebassets\\assets\\images\\chicken.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\coca.png",
+      "PackagePath": "staticwebassets\\assets\\images\\coca.png"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\combo.png",
       "PackagePath": "staticwebassets\\assets\\images\\combo.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\combo1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\combo1.png"
     },
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\g1.jpg",
@@ -679,6 +691,10 @@
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\snack.png",
       "PackagePath": "staticwebassets\\assets\\images\\snack.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\snack1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\snack1.png"
     },
     {
       "Id": "C:\\Users\\ADMIN\\Documents\\LearnCode\\Web\\Project\\burger\\wwwroot\\assets\\images\\snacks.png",

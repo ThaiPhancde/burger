@@ -1,0 +1,38 @@
+@model burger.Models.tblDeals
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main id="main" class="main">
+    <div class="pagetitle">
+        <h2>Confirm to delete a deal</h2>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="DealID">Deal ID</label>
+            <input type="text" class="form-control mb-3" asp-for="DealID" disabled />
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Title">Deal Title</label>
+            <input type="text" class="form-control mb-3" asp-for="Title" disabled />
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="OriginalPrice">Original Price</label>
+            <input type="text" class="form-control mb-3" asp-for="OriginalPrice" disabled />
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="DiscountedPrice">Discounted Price</label>
+            <input type="text" class="form-control mb-3" asp-for="DiscountedPrice" disabled />
+        </div>
+    </div>
+    <!-- Begin Form --->
+    <form asp-action="Delete" method="Post">
+        <input type="hidden" asp-for="DealID" />
+        <a class="btn btn-lg btn-warning p-2 mr-5" href="javascript:history.back()">
+            <i class="mdi mdi-arrow-left-bold-circle"></i> Go back
+        </a>
+        <button type="submit" class="btn btn-lg btn-danger p-2">
+            <i class="mdi mdi-delete"></i> Delete
+        </button>
+    </form>
+    <!-- End Form -->
+</main>

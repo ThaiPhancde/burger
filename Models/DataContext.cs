@@ -4,9 +4,9 @@ namespace burger.Models
 {
     public class DataContext : DbContext
     {
-         public DataContext(DbContextOptions<DataContext> options) : base(options)
-    {
-    }   
+          public DataContext(DbContextOptions<DataContext> options) : base(options)
+        {
+        }
         public DbSet<tblMenu> Menu { get; set; }
         public DbSet<AdminMenu> AdminMenu { get; set; }
         public DbSet<tblFoodMenu> FoodMenu { get; set; }

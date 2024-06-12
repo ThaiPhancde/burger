@@ -16,6 +16,5 @@ namespace burger.Models
         [ForeignKey("FMenuID")]
         public int FMenuID { get; set; }
         public int Price { get; set; }
-         public virtual tblFoodMenu FoodMenu { get; set; }
     }
 }

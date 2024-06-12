@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hóa đơn</title>
+    <style>
+        /* CSS cơ bản để làm cho hóa đơn trông đẹp hơn */
+        body { font-family: sans-serif; }
+        .container { width: 80%; margin: 0 auto; }
+        .section { margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        .total { text-align: right; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hóa đơn</h1>
+
+        <section class="section">
+            <h2>Thông tin người nhận:</h2>
+            <p><strong>Họ và tên:</strong> John Doe</p>
+            <p><strong>Số điện thoại:</strong> 123-456-7890</p>
+            <p><strong>Địa chỉ:</strong> 1234 Main St</p>
+            <p><strong>Thành phố:</strong> Anytown</p>
+        </section>
+
+        <section class="section">
+            <h2>Chi tiết đơn hàng:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>EXTREME CHEESE BURGER JR</td>
+                        <td>69.000 VNĐ</td>
+                        <td>1</td>
+                        <td>69.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>TENDERGRILL BURGER</td>
+                        <td>79.000 VNĐ</td>
+                        <td>2</td>
+                        <td>158.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>SPICY TENDERCRISP BURGER</td>
+                        <td>79.000 VNĐ</td>
+                        <td>1</td>
+                        <td>79.000 VNĐ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="total"><strong>Tổng cộng:</strong> 306.000 VNĐ</p>
+        </section>
+    </div>
+</body>
+</html>

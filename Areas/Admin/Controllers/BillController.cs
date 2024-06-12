@@ -7,14 +7,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace burger.Controllers
 {
-    public class CartController : Controller
+    public class BillController : Controller
     {
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Checkout()
         {
             return View();
         }
